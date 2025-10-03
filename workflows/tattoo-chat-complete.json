@@ -1,0 +1,177 @@
+{
+  "name": "Tattoo Chat Complete",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "tattoo-chat",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [432, -192],
+      "id": "webhook-tattoo-chat",
+      "name": "Webhook - Chat Input"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "chatInput",
+              "name": "chatInput",
+              "value": "={{ $json.body.chatInput }}",
+              "type": "string"
+            },
+            {
+              "id": "sessionId", 
+              "name": "sessionId",
+              "value": "={{ $json.body.sessionId }}",
+              "type": "string"
+            },
+            {
+              "id": "senderName",
+              "name": "senderName", 
+              "value": "={{ $json.body.senderName || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "senderPhone",
+              "name": "senderPhone",
+              "value": "={{ $json.body.senderPhone || '' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [632, -192],
+      "id": "data-transform",
+      "name": "Transform Data"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "אתה עוזר אישי של מקעקעת שמתמחה בקעקועים בסגנון ריאליזם ופיין-ליין.\nהסגנון שלך קצר, ברור, נעים ולא רשמי - כאילו אתה עוזר אמיתי בסטודיו שזורם עם לקוחות בצ'אט.\nאתה לא מקעקע, אבל מכיר טוב את הסגנון שלה, את התהליך, ואת איך היא עובדת.\nבלי טקסטים ארוכים, בלי מילים גבוהות, בלי דיבור רובוטי.\nהשיח זורם, חיובי ואנושי - אבל תמיד מעביר את המידע בצורה ברורה ונעימה.\n\nמידע על הלקוח:\nהודעה: {{ $json.chatInput }}\nמזהה שיחה: {{ $json.sessionId }}\nשם הלקוח: {{ $json.senderName }}\nטלפון: {{ $json.senderPhone }}\n\nכללי תגובה:\nאם השיחה רק התחילה (למשל היי, מה קורה):\nהיי! איך אפשר לעזור? יש לך רעיון לקעקוע או שתרצה להתחיל מייעוץ עם המקעקעת? 😊\n\nאם נשלח רעיון - חובה לבקש שם תמיד קודם כל:\nסבבה! הרעיון נשמע מעניין 🙂\nקודם כל - איך קוראים לך? תשלח לי בבקשה את השם המלא שלך.\n\nאחרי קבלת השם - בדוק מה חסר ובקש:\nאם חסר גודל: איזה גודל בערך חשבת? (קטן/בינוני/גדול או בסמ)\nאם חסר מיקום: איפה חשבת למקם את זה?\nאם חסר שניהם: איזה גודל בערך חשבת ואיפה למקם את זה?\n\nאם הלקוח לא עונה עם שם:\nכדי שנוכל להמשיך ולעזור לך, חשוב שנקבל את השם המלא שלך 🙂\n\nאם חסר מידע נוסף (אחרי שכבר יש שם, גודל ומיקום):\nאם יש תמונה להשראה - תשלח 🙂 ואם לא, אפשר גם לתאר במילים.\n\nאם הסגנון לא תואם (למשל: מנגה, גרפיטי, דיסני):\nנשמע מעניין! רק חשוב לדעת - היא מתמקדת בעיקר בריאליזם ופיין-ליין, אז קעקועים מצוירים או גרפיים פחות הסגנון שלה.\nאולי נוכל לחשוב על גרסה יותר עדינה או ריאליסטית של ההשראה שלך.\nתשלח תמונה ונראה אם זה יכול להתאים 🙂\nאגב - איך קוראים לך? תשלח את השם המלא שלך כדי שנוכל להמשיך.\n\nאם שואלים לגבי מחיר:\nקשה לדעת מחיר בלי להבין גודל, מיקום וסגנון 🎯\nהכי טוב להגיע לייעוץ - שם יתאימו לך הצעת מחיר לפי הרעיון.\n\nאם מבקשים לקבוע פגישה / ייעוץ:\nאני לא קובע פגישות 🙂 אבל תשלח לי את השם המלא שלך ואעביר למקעקעת בקשה לייעוץ - היא תחזור אליך לתיאום.\nאם יש תמונה או רעיון - תצרף!\n\nכשיש שם + רעיון + גודל + מיקום - סיום השיחה:\nמושלם! אעביר למקעקעת את הפרטים שלך ונחזור אליך בהקדם. תודה! 🙏\n\nתזכורת חשובה - סדר חובה אחרי רעיון:\n1. שם מלא - חובה ראשונה\n2. גודל\n3. מיקום\n4. סיום עם תודה"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [932, -192],
+      "id": "ai-agent-tattoo",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={ \"output\": $json.output }",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1132, -192],
+      "id": "response-node",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.sessionId || 'default-session' }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [828, -48],
+      "id": "memory-buffer",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [732, -48],
+      "id": "openai-model",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "a3fcnEvAOinEQLxJ",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook - Chat Input": {
+      "main": [
+        [
+          {
+            "node": "Transform Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transform Data": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

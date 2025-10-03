@@ -1,0 +1,31 @@
+# InkFlow Proxy Server Dependencies
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+# Optional: For enhanced system monitoring and memory management
+# Install with: pip install psutil
+psutil>=5.8.0
+
+# Built-in Python modules used (no installation needed):
+# - http.server
+# - socketserver  
+# - urllib.request
+# - json
+# - os
+# - time
+# - socket
+# - signal
+# - sys
+# - logging
+# - threading
+# - tempfile
+# - weakref
+# - gc
+# - contextlib
+# - datetime
+# - cgi
+# - io
+
+# Note: All core functionality works without additional dependencies
+# psutil is optional and provides enhanced memory monitoring in health checks

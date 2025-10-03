@@ -1,0 +1,1761 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Hebrew Typography System */
+html {
+    font-family: 'Heebo', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+
+body {
+    background-color: #F8F6F3; /* Cream/beige background */
+    color: #2C2C2C;
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header */
+.header {
+    background: rgba(248, 246, 243, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+}
+
+.nav-logo h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #2C2C2C;
+    letter-spacing: -0.02em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-menu a {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2C2C2C;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 8px 0;
+}
+
+.nav-menu a:hover {
+    color: #1B263B;
+}
+
+/* Main Content */
+.main {
+    margin-top: 80px;
+    padding: 60px 0;
+    position: relative;
+}
+
+/* Decorative Icons */
+.decorative-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.decorative-icon {
+    position: absolute;
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Blend square backgrounds */
+    background: transparent;
+    mix-blend-mode: multiply;
+    /* Add pink tint */
+    filter: sepia(100%) saturate(200%) hue-rotate(300deg) brightness(1.2) contrast(1.1);
+    /* Round corners to soften square edges */
+    border-radius: 20px;
+    /* Subtle shadow to help blend */
+    box-shadow: 0 0 20px rgba(248, 246, 243, 0.8);
+    /* Enhanced floating animation */
+    animation: elegantFloat 8s ease-in-out infinite;
+}
+
+/* Simple Decorative Elements Design */
+
+/* Large Tattoo Gun - Right Side */
+.big-tattoo-gun {
+    opacity: 0.3;
+    width: 400px;
+    height: auto;
+    top: 35%;
+    right: 5%;
+    transform: translateY(-50%) rotate(18deg);
+    z-index: 0;
+    animation: elegantTattooGunNew 8s ease-in-out infinite 0.5s, fadeInScaleTattoo 2s ease-out 0.3s both, swayTattoo 5s ease-in-out infinite 1s;
+    transform-origin: center center;
+}
+
+
+/* Large Notebook - Left Side */
+.big-notebook {
+    opacity: 0.3;
+    width: 400px;
+    height: auto;
+    top: 35%;
+    left: 2%;
+    transform: translateY(-50%) rotate(-18deg);
+    z-index: 0;
+    animation: elegantNotebook 8s ease-in-out infinite 1s, fadeInScale 2s ease-out 0.5s both, sway 5s ease-in-out infinite 0.5s;
+    transform-origin: center center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+}
+
+.big-notebook:hover {
+    opacity: 0.6;
+    filter: sepia(100%) saturate(250%) hue-rotate(300deg) brightness(1.4) contrast(1.2);
+}
+
+.hero-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 0;
+    min-height: calc(100vh - 140px);
+    position: relative;
+    z-index: 1;
+    padding-top: 40px;
+}
+
+/* New Hero Section Layout */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Hero Text with Animations */
+.hero-text {
+    text-align: center;
+    max-width: 600px;
+    animation: heroFadeInUp 1.2s ease-out;
+}
+
+/* Chat Invitation Text */
+.chat-invitation {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #E8C4C4;
+    margin: 24px 0 0 0;
+    animation: subtitleFadeIn 1s ease-out 1s both;
+    text-align: center;
+}
+
+/* Step Chat Container - Integrated into Workflow */
+.step-chat-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(44, 44, 44, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 3px solid #E8C4C4 !important; /* Make border more visible */
+    margin: 20px 0;
+    animation: chatSlideIn 0.6s ease-out;
+    transition: all 0.3s ease;
+    height: 600px !important; /* Make even bigger and force with !important */
+    min-height: 600px !important;
+}
+
+.step-chat-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(44, 44, 44, 0.2);
+}
+
+.step-chat-container .chat-header {
+    background: linear-gradient(135deg, #E8C4C4, #E2B8B8);
+    color: #2C2C2C;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(226, 184, 184, 0.3);
+}
+
+.step-chat-container .chat-header h3 {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.chat-status {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chat-status::before {
+    content: '●';
+    color: #4CAF50;
+    font-size: 8px;
+    animation: pulse 2s infinite;
+}
+
+.step-chat-container .chat-messages {
+    height: 450px !important;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: linear-gradient(to bottom, #fefefe 0%, #fafafa 100%);
+    flex: 1;
+}
+
+.step-chat-container .chat-input-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: white;
+    border-top: 1px solid #e8e8e8;
+    direction: rtl;
+}
+
+.hero-title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #2C2C2C;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    animation: titleSlideIn 1s ease-out 0.3s both;
+}
+
+.hero-subtitle {
+    font-family: 'Heebo', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: subtitleFadeIn 1s ease-out 0.6s both;
+}
+
+/* CTA Button with Animation */
+.cta-button {
+    font-family: 'Heebo', sans-serif;
+    background: #E8C4C4; /* Soft pink */
+    color: #2C2C2C;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 30px; /* More rounded */
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 12px rgba(232, 196, 196, 0.4);
+    margin-top: 8px;
+    animation: buttonBounceIn 0.8s ease-out 0.9s both;
+}
+
+.cta-button:hover {
+    background: #E2B8B8;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(232, 196, 196, 0.6);
+}
+
+.cta-button:hover {
+    background: #E2B8B8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(232, 196, 196, 0.4);
+}
+
+/* Chat Hint */
+.chat-hint {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    color: #888;
+    margin-top: 16px;
+    animation: subtitleFadeIn 1s ease-out 1.2s both;
+}
+
+
+
+.chat-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+}
+
+.agent-message {
+    align-self: flex-start;
+}
+
+.user-message {
+    align-self: flex-end;
+}
+
+.message-content {
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.agent-message .message-content {
+    background: #f5f5f5;
+    color: #2C2C2C;
+    border-bottom-left-radius: 6px;
+}
+
+.user-message .message-content {
+    background: #E8C4C4;
+    color: #2C2C2C;
+    border-bottom-right-radius: 6px;
+}
+
+.system-message .message-content {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 12px;
+    font-size: 13px;
+    text-align: center;
+    margin: 8px auto;
+}
+
+.retry-message {
+    background: #d4edda !important;
+    color: #155724 !important;
+    border: 1px solid #c3e6cb !important;
+    animation: pulse 1s infinite;
+}
+
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #ffffff;
+    border-top: 1px solid #e8e8e8;
+    direction: rtl;
+}
+
+/* Input Wrapper - Creates the seamless integration */
+.input-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Text Input Field */
+#chatInput {
+    width: 100%;
+    padding: 12px 60px 12px 16px; /* Fixed RTL padding - RIGHT 60px for attachment button, LEFT 16px */
+    border: 1.5px solid #e1e5e9;
+    border-radius: 24px;
+    font-size: 16px;
+    font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fafbfc;
+    color: #2c3e50;
+    outline: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    direction: rtl;
+    text-align: right;
+    box-sizing: border-box;
+    /* Force text to stay away from left edge where attachment button is */
+    text-indent: 0;
+    padding-inline-start: 60px; /* Modern CSS property for RTL */
+    padding-inline-end: 16px;
+}
+
+#chatInput::placeholder {
+    color: #8b9dc3;
+    font-weight: 400;
+}
+
+#chatInput:focus {
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#chatInput:hover:not(:focus) {
+    border-color: #c7d2fe;
+    background: #ffffff;
+}
+
+.send-button {
+    padding: 12px 20px;
+    background: #E8C4C4;
+    color: #2C2C2C;
+    border: none;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 80px;
+    white-space: nowrap;
+}
+
+.send-button:hover {
+    background: #d4a8a8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(212, 168, 168, 0.3);
+}
+
+.send-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(212, 168, 168, 0.2);
+}
+
+.send-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+    background: #f5f5f5;
+    border-radius: 18px;
+    border-bottom-left-radius: 6px;
+    max-width: 80%;
+    align-self: flex-start;
+}
+
+.typing-dots {
+    display: flex;
+    gap: 2px;
+}
+
+.typing-dot {
+    width: 6px;
+    height: 6px;
+    background: #888;
+    border-radius: 50%;
+    animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Hero Illustration */
+.hero-illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.laptop-tattoo-svg {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    filter: drop-shadow(0 2px 8px rgba(44, 44, 44, 0.08));
+}
+
+.laptop-tattoo-svg .laptop,
+.laptop-tattoo-svg .tattoo-gun {
+    stroke: #2C2C2C;
+    fill: none;
+}
+
+.laptop-tattoo-svg .dashboard {
+    stroke: #666;
+    fill: none;
+}
+
+/* Sidebar Content - Hidden for now to match reference */
+.sidebar-content {
+    display: none;
+}
+
+.sidebar-item {
+    margin-bottom: 32px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(44, 44, 44, 0.05);
+}
+
+.sidebar-item:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-item h3 {
+    font-family: 'Heebo', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1B263B;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.sidebar-item p {
+    font-family: 'Heebo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Responsive Design for Simple Elements */
+@media (max-width: 1199px) {
+    /* Tablet adjustments - scale down elements */
+    .big-tattoo-gun,
+    .big-notebook {
+        width: 320px;
+        opacity: 0.25;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .nav-menu {
+        gap: 20px;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 48px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+        max-width: 100%;
+    }
+    
+    .hero-content {
+        padding-top: 20px;
+    }
+    
+    .hero-section {
+        gap: 30px;
+    }
+    
+    .main {
+        padding: 40px 0;
+    }
+    
+    
+    /* Mobile: Scale down decorative elements */
+    .big-tattoo-gun,
+    .big-notebook {
+        width: 250px;
+        opacity: 0.15;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .chat-invitation {
+        font-size: 16px;
+    }
+    
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    /* Hide decorative elements on very small screens */
+    .big-tattoo-gun,
+    .big-notebook {
+        display: none;
+    }
+}
+
+/* Hebrew Text Optimization */
+[lang="he"] {
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* RTL Support Enhancements */
+.hero-content {
+    direction: rtl;
+}
+
+.sidebar-content {
+    direction: rtl;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus states for keyboard navigation */
+.nav-menu a:focus,
+.cta-button:focus {
+    outline: 2px solid #1B263B;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .hero-title,
+    .nav-menu a,
+    .sidebar-item h3 {
+        color: #000;
+    }
+    
+    .hero-subtitle,
+    .sidebar-item p {
+        color: #333;
+    }
+    
+    .cta-button {
+        border: 2px solid #000;
+    }
+}
+
+/* Hero Animations */
+@keyframes heroFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes titleSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes subtitleFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonBounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    50% {
+        transform: scale(1.05) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Simple Animation System */
+
+/* Elegant Animation System */
+
+/* Sophisticated Floating Animation */
+@keyframes elegantFloat {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.3;
+    }
+    33% {
+        transform: translateY(-15px) scale(1.02);
+        opacity: 0.35;
+    }
+    66% {
+        transform: translateY(-8px) scale(0.98);
+        opacity: 0.28;
+    }
+}
+
+/* Tattoo Gun Elegant Movement */
+@keyframes elegantTattooGun {
+    0%, 100% {
+        transform: translateY(-50%) rotate(45deg) translateX(0px);
+    }
+    25% {
+        transform: translateY(-52%) rotate(47deg) translateX(8px);
+    }
+    50% {
+        transform: translateY(-48%) rotate(43deg) translateX(12px);
+    }
+    75% {
+        transform: translateY(-51%) rotate(46deg) translateX(4px);
+    }
+}
+
+/* Notebook Elegant Movement */
+@keyframes elegantNotebook {
+    0% {
+        transform: translateY(-50%) rotate(-18deg) scale(1);
+        opacity: 0.3;
+    }
+    20% {
+        transform: translateY(-55%) rotate(-15deg) scale(1.05);
+        opacity: 0.4;
+    }
+    40% {
+        transform: translateY(-48%) rotate(-21deg) scale(0.95);
+        opacity: 0.25;
+    }
+    60% {
+        transform: translateY(-52%) rotate(-14deg) scale(1.08);
+        opacity: 0.45;
+    }
+    80% {
+        transform: translateY(-46%) rotate(-22deg) scale(0.92);
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(-50%) rotate(-18deg) scale(1);
+        opacity: 0.3;
+    }
+}
+
+/* Breathing Effect */
+@keyframes breathe {
+    0%, 100% {
+        filter: sepia(100%) saturate(200%) hue-rotate(300deg) brightness(1.2) contrast(1.1);
+    }
+    50% {
+        filter: sepia(100%) saturate(180%) hue-rotate(305deg) brightness(1.3) contrast(1.05);
+    }
+}
+
+/* Gentle Swaying */
+@keyframes sway {
+    0% {
+        transform: translateY(-50%) rotate(-18deg) translateX(0px);
+    }
+    25% {
+        transform: translateY(-50%) rotate(-18deg) translateX(-8px);
+    }
+    50% {
+        transform: translateY(-50%) rotate(-18deg) translateX(-12px);
+    }
+    75% {
+        transform: translateY(-50%) rotate(-18deg) translateX(-4px);
+    }
+    100% {
+        transform: translateY(-50%) rotate(-18deg) translateX(0px);
+    }
+}
+
+/* Fade In with Scale */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) rotate(-18deg) scale(0.8);
+    }
+    100% {
+        opacity: 0.3;
+        transform: translateY(-50%) rotate(-18deg) scale(1);
+    }
+}
+
+/* Tattoo Gun Animations - Same timing as notebook but positive rotation */
+@keyframes elegantTattooGunNew {
+    0% {
+        transform: translateY(-50%) rotate(18deg) scale(1);
+        opacity: 0.3;
+    }
+    20% {
+        transform: translateY(-55%) rotate(21deg) scale(1.05);
+        opacity: 0.4;
+    }
+    40% {
+        transform: translateY(-48%) rotate(15deg) scale(0.95);
+        opacity: 0.25;
+    }
+    60% {
+        transform: translateY(-52%) rotate(22deg) scale(1.08);
+        opacity: 0.45;
+    }
+    80% {
+        transform: translateY(-46%) rotate(14deg) scale(0.92);
+        opacity: 0.2;
+    }
+    100% {
+        transform: translateY(-50%) rotate(18deg) scale(1);
+        opacity: 0.3;
+    }
+}
+
+@keyframes swayTattoo {
+    0% {
+        transform: translateY(-50%) rotate(18deg) translateX(0px);
+    }
+    25% {
+        transform: translateY(-50%) rotate(18deg) translateX(8px);
+    }
+    50% {
+        transform: translateY(-50%) rotate(18deg) translateX(12px);
+    }
+    75% {
+        transform: translateY(-50%) rotate(18deg) translateX(4px);
+    }
+    100% {
+        transform: translateY(-50%) rotate(18deg) translateX(0px);
+    }
+}
+
+@keyframes fadeInScaleTattoo {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) rotate(18deg) scale(0.8);
+    }
+    100% {
+        opacity: 0.3;
+        transform: translateY(-50%) rotate(18deg) scale(1);
+    }
+}
+
+/* Hover Up-Down Animation */
+@keyframes notebookHoverFloat {
+    0% {
+        transform: translateY(-40%) rotate(-18deg) scale(1.2);
+    }
+    100% {
+        transform: translateY(-45%) rotate(-18deg) scale(1.2);
+    }
+}
+
+@keyframes iconFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(var(--icon-rotation, 0deg));
+    }
+    100% {
+        opacity: var(--icon-opacity, 0.3);
+        transform: scale(1) rotate(var(--icon-rotation, 0deg));
+    }
+}
+
+/* Chat Animation Keyframes */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes chatBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-3px);
+    }
+    60% {
+        transform: translateY(-1px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+@keyframes chatPulse {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(232, 196, 196, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(232, 196, 196, 0.6);
+    }
+}
+
+@keyframes chatSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes typingBounce {
+    0%, 60%, 100% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    50% {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Workflow Section Styles */
+.workflow-invitation {
+    text-align: center;
+    margin: 80px 0 60px 0;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.workflow-title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+
+.animated-arrow {
+    display: inline-block;
+    animation: arrowBounce 2s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.animated-arrow:hover {
+    transform: scale(1.2);
+}
+
+.workflow-demo {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 60px 40px;
+    margin: 40px 0;
+    box-shadow: 0 8px 32px rgba(44, 44, 44, 0.08);
+    border: 1px solid rgba(232, 196, 196, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.workflow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.workflow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    direction: rtl;
+    text-align: right;
+    opacity: 0;
+    animation: slideInFromRight 0.8s ease-out forwards;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    margin: 20px 0;
+    border: 1px solid rgba(232, 196, 196, 0.15);
+    transition: all 0.3s ease;
+}
+
+.workflow-step:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(232, 196, 196, 0.15);
+}
+
+.workflow-step:nth-child(1) { animation-delay: 0.2s; }
+.workflow-step:nth-child(2) { animation-delay: 0.4s; }
+.workflow-step:nth-child(3) { animation-delay: 0.6s; }
+.workflow-step:nth-child(4) { animation-delay: 0.8s; }
+
+/* Interactive Timeline Styles */
+.workflow-timeline {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.timeline-step.active .timeline-dot {
+    background: linear-gradient(135deg, #E8C4C4, #E2B8B8);
+    color: #2C2C2C;
+    transform: scale(1.2);
+    box-shadow: 0 4px 15px rgba(232, 196, 196, 0.6);
+}
+
+.timeline-step.completed .timeline-dot {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.timeline-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.timeline-label {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #666;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.timeline-step.active .timeline-label {
+    color: #2C2C2C;
+    font-weight: 600;
+}
+
+.timeline-progress {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 4px;
+    background: #f0f0f0;
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.timeline-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(270deg, #E8C4C4, #E2B8B8);
+    border-radius: 2px;
+    width: var(--progress-width, 25%);
+    transition: width 0.6s ease;
+}
+
+/* Enhanced Step Styles */
+.workflow-step {
+    position: relative;
+    transition: all 0.4s ease;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.workflow-step:hover {
+    background: rgba(232, 196, 196, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(232, 196, 196, 0.15);
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-details {
+    margin-top: 20px;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, rgba(232, 196, 196, 0.08), rgba(255, 255, 255, 0.6));
+    border-radius: 16px;
+    border: 1px solid rgba(232, 196, 196, 0.2);
+    box-shadow: 0 2px 12px rgba(232, 196, 196, 0.1);
+    opacity: 1;
+    position: relative;
+}
+
+.step-details::before {
+    content: none !important;
+    display: none !important;
+}
+
+
+.step-details p {
+    margin: 0;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* Image Overlay Effects */
+.step-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-top: 16px;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(232, 196, 196, 0.9), rgba(226, 184, 184, 0.9));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(2px);
+}
+
+.step-image:hover .image-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    color: #2C2C2C;
+    padding: 20px;
+}
+
+.overlay-content h5 {
+    font-family: 'Heebo', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.overlay-content p {
+    font-size: 14px;
+    margin: 0 0 16px 0;
+    line-height: 1.4;
+}
+
+.learn-more-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #2C2C2C;
+    color: #2C2C2C;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background: #2C2C2C;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44, 44, 44, 0.3);
+}
+
+/* Connection Lines Between Steps */
+.workflow-steps::before {
+    content: '';
+    position: absolute;
+    right: 60px;
+    top: 50px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, 
+        transparent 0%, 
+        rgba(232, 196, 196, 0.3) 10%, 
+        rgba(232, 196, 196, 0.6) 50%, 
+        rgba(232, 196, 196, 0.3) 90%, 
+        transparent 100%);
+    animation: flowPulse 3s ease-in-out infinite;
+}
+
+@keyframes flowPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Mobile Responsiveness for New Features */
+@media (max-width: 768px) {
+    .workflow-timeline {
+        margin-bottom: 30px;
+    }
+    
+    .timeline-steps {
+        max-width: 300px;
+        padding: 0 10px;
+    }
+    
+    .timeline-dot {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    .timeline-label {
+        font-size: 10px;
+    }
+    
+    .workflow-step {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .workflow-step:hover {
+        transform: none;
+        background: rgba(232, 196, 196, 0.08);
+    }
+    
+    .step-number {
+        margin-bottom: 16px;
+        align-self: center;
+    }
+    
+    .overlay-content h5 {
+        font-size: 16px;
+    }
+    
+    .overlay-content p {
+        font-size: 13px;
+    }
+    
+    .learn-more-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    
+    .workflow-steps::before {
+        display: none;
+    }
+}
+
+/* Additional Engagement Animations */
+@keyframes stepGlow {
+    0%, 100% { 
+        box-shadow: 0 2px 8px rgba(232, 196, 196, 0.2);
+    }
+    50% { 
+        box-shadow: 0 4px 20px rgba(232, 196, 196, 0.4);
+    }
+}
+
+.workflow-step:hover .step-number {
+    animation: stepGlow 2s ease-in-out infinite;
+}
+
+.timeline-step:hover {
+    transform: translateY(-2px);
+}
+
+/* Smooth reveal animation for step details */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.workflow-step.expanded .step-details {
+    animation: slideDown 0.3s ease-out;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #E8C4C4, #E2B8B8);
+    color: #2C2C2C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    box-shadow: 0 6px 20px rgba(232, 196, 196, 0.4);
+    margin-top: 8px;
+    border: 3px solid white;
+    position: relative;
+}
+
+.step-number::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(232, 196, 196, 0.2), rgba(226, 184, 184, 0.3));
+    z-index: -1;
+}
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #2C2C2C;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    position: relative;
+    padding-right: 12px;
+}
+
+.step-title::before {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(180deg, #E8C4C4, #E2B8B8);
+    border-radius: 2px;
+}
+
+.step-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(44, 44, 44, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(44, 44, 44, 0.2);
+}
+
+.workflow-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(232, 196, 196, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.workflow-image:hover {
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 12px 30px rgba(232, 196, 196, 0.3);
+}
+
+/* Workflow Animations */
+@keyframes arrowBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-8px);
+    }
+    60% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Workflow Design */
+@media (max-width: 768px) {
+    .workflow-demo {
+        padding: 40px 24px;
+        margin: 24px 0;
+    }
+    
+    .workflow-steps {
+        gap: 40px;
+    }
+    
+    .workflow-step {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .step-number {
+        margin-bottom: 16px;
+    }
+    
+    .workflow-title {
+        font-size: 28px;
+    }
+    
+    .step-title {
+        font-size: 20px;
+    }
+}
+
+/* Photo Attachment Button - Seamlessly Integrated */
+.photo-attachment-btn {
+    position: absolute !important;
+    right: 20px !important; /* Fixed for RTL layout - button should be on the right */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    color: #6b7280; /* Subtle grey - primary state */
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10; /* Higher z-index to ensure it's on top */
+    flex-shrink: 0; /* Prevent button from shrinking */
+    pointer-events: auto; /* Ensure button is clickable */
+}
+
+.photo-attachment-btn:hover {
+    color: #4b5563; /* Darker grey on hover */
+    background: rgba(107, 114, 128, 0.08); /* Subtle background */
+    transform: translateY(-50%) scale(1.05);
+}
+
+.photo-attachment-btn:active {
+    color: #374151; /* Even darker when pressed */
+    background: rgba(107, 114, 128, 0.12);
+    transform: translateY(-50%) scale(0.98);
+}
+
+.photo-attachment-btn:focus {
+    outline: none;
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.08);
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* Mobile Responsive for Chat Input */
+@media (max-width: 768px) {
+    #chatInput {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px 14px 10px 54px; /* Increased left padding for mobile */
+        padding-inline-start: 54px; /* Modern CSS for RTL mobile */
+        padding-inline-end: 14px;
+    }
+    
+    .photo-attachment-btn {
+        width: 28px;
+        height: 28px;
+        left: 16px; /* Adjusted for mobile with better spacing */
+    }
+    
+    .photo-attachment-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Photo preview styles */
+.photo-preview {
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-height: 150px;
+    overflow-y: auto;
+    border-radius: 0 0 0 0;
+}
+
+.photo-preview-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 100px;
+    transition: transform 0.2s ease;
+}
+
+.photo-preview-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.photo-preview-item img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #f0f0f0;
+}
+
+.photo-preview-item .photo-name {
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+    margin-top: 8px;
+    font-family: 'Heebo', sans-serif;
+    direction: rtl;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.photo-remove {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.photo-remove:hover {
+    background: #ff3742;
+}
+
+/* Chat photos in messages */
+.photos-message {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 100%;
+}
+
+.chat-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Photo modal */
+.photo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.photo-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s ease;
+}
+
+.modal-close:hover {
+    background: white;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Test</title>
+</head>
+<body>
+    <input type="text" id="chatInput" placeholder="Test input" />
+    <button id="sendButton">Send</button>
+    
+    <script>
+        console.log('Testing elements...');
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        
+        console.log('chatInput:', chatInput);
+        console.log('sendButton:', sendButton);
+        
+        if (sendButton) {
+            sendButton.addEventListener('click', function() {
+                console.log('Button clicked!');
+                console.log('Input value:', chatInput ? chatInput.value : 'INPUT NULL');
+            });
+        }
+        
+        if (chatInput) {
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    console.log('Enter pressed!');
+                    console.log('Input value:', chatInput.value);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
