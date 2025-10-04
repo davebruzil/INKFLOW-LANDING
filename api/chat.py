@@ -41,7 +41,12 @@ class handler(BaseHTTPRequestHandler):
             webhook_url = f"{n8n_url}/webhook/tattoo-chat"
 
             print(f"[DEBUG] Forwarding to: {webhook_url}")
-            print(f"[DEBUG] Payload: {json.dumps(payload)}")
+
+            # Truncate imageUrl for logging to avoid huge logs
+            log_payload = payload.copy()
+            if 'imageUrl' in log_payload:
+                log_payload['imageUrl'] = log_payload['imageUrl'][:100] + '...[truncated]'
+            print(f"[DEBUG] Payload: {json.dumps(log_payload)}")
 
             # Forward to n8n
             req = urllib.request.Request(
