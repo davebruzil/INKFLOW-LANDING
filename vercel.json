@@ -1,27 +1,8 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "src/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "api/**/*.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/src/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/src/index.html"
+      "source": "/(.*)",
+      "destination": "/src/$1"
     }
   ],
   "env": {
