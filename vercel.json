@@ -5,8 +5,8 @@
       "destination": "/src/images/$1"
     },
     {
-      "source": "/(.*\\.(js|css))",
-      "destination": "/src/$1"
+      "source": "/(.*)\\.(js|css)",
+      "destination": "/src/$1.$2"
     },
     {
       "source": "/",
