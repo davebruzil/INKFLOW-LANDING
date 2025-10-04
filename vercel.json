@@ -6,6 +6,7 @@
     }
   ],
   "env": {
-    "N8N_WEBHOOK_BASE_URL": "https://inkflow.eu.ngrok.io"
+    "N8N_WEBHOOK_BASE_URL": "https://inkflow.eu.ngrok.io",
+    "N8N_WEBHOOK_PATH": "/webhook-test/chat"
   }
 }

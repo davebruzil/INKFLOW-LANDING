@@ -38,7 +38,7 @@ class handler(BaseHTTPRequestHandler):
 
             # Get n8n webhook URL from environment
             n8n_url = os.getenv('N8N_WEBHOOK_BASE_URL', 'https://inkflow.eu.ngrok.io')
-            webhook_url = f"{n8n_url}/webhook/tattoo-chat"
+            webhook_url = f"{n8n_url}/webhook-test/chat"
 
             print(f"[DEBUG] Forwarding to: {webhook_url}")
 
