@@ -177,9 +177,12 @@ class handler(BaseHTTPRequestHandler):
 
             # Add images to payload if any
             if images:
-                payload['images'] = images
-                payload['hasImages'] = True
-                print(f"[DEBUG] Total images: {len(images)}")
+                # Convert first image to data URI for AI agent vision
+                first_image = images[0]
+                data_uri = f"data:{first_image['mimeType']};base64,{first_image['data']}"
+                payload['imageUrl'] = data_uri
+                payload['hasImage'] = True
+                print(f"[DEBUG] Image data URI created: {first_image['filename']}")
 
             return payload
 
